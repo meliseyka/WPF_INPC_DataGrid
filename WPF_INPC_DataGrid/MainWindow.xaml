@@ -44,8 +44,9 @@
         <DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=RectangleGeometry}" AutoGenerateColumns="False"
         IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Свойство" Binding="{Binding Path=a}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Величина" Binding="{Binding Path=b}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="a" Binding="{Binding Path=a}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="b" Binding="{Binding Path=b}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Square" Binding="{Binding Path=Square}"></DataGridTextColumn>
             </DataGrid.Columns>
 
         </DataGrid>
