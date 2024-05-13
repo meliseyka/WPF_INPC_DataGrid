@@ -4,9 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_INPC_DataGrid"
+        xmlns:vm="clr-namespace:WPF_INPC_DataGrid.VM"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.DataContext>
+        <vm:ViewModel></vm:ViewModel>
+    </Window.DataContext>
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid DockPanel.Dock="Bottom" ItemsSource="{Binding Path=Geometry}" AutoGenerateColumns="False"
+         IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Свойство" Binding="{Binding Path=property}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Величина" Binding="{Binding Path=value}"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Grid.Row="0" Grid.Column="1" >
+            <Button  Content="Обновить Rectangle через конструктор" Command="{Binding UpdateRectangleByCtor}"></Button>
+            <Button  Content="Обновить Rectangle через изменение свойств внешним кодом" Command="{Binding UpdateRectangleByChangingProperties}"></Button>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="{Binding rectangle.a, StringFormat= 'a = {0}'}"/>
+            <TextBlock Text="{Binding rectangle.b, StringFormat= 'b = {0}'}"/>
+            <TextBlock Text="{Binding rectangle.Square, StringFormat= 'Общая площадь поперечного сечения = {0}'}"/>
+        </StackPanel>
     </Grid>
 </Window>
