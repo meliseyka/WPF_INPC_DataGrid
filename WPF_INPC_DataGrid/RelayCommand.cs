@@ -3,6 +3,10 @@ using System.Windows.Input;
 
 namespace WPF_INPC_DataGrid
 {
+
+    /// <summary>
+    /// Класс для создания команд, привязываемых к Button.
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private Action<object> execute;

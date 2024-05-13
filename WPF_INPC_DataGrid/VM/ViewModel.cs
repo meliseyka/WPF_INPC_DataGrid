@@ -46,6 +46,9 @@ namespace WPF_INPC_DataGrid.VM
 
         private RelayCommand _UpdateRectangle;
 
+        /// <summary>
+        /// Команда, предназначенная для изменения Rectangle засчёт создания нового экземпляра (через конструктор)
+        /// </summary>
         public RelayCommand UpdateRectangleByCtor
         {
             get
@@ -59,6 +62,9 @@ namespace WPF_INPC_DataGrid.VM
 
         private RelayCommand _UpdateRectangleByChangingProperties;
 
+        /// <summary>
+        /// Команда изменяет свойства Rectangle внешним кодом.
+        /// </summary>
         public RelayCommand UpdateRectangleByChangingProperties
         {
             get

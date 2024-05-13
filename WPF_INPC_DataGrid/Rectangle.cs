@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace WPF_INPC_DataGrid
 {
+
+    /// <summary>
+    /// Класс прямоугольика со сторонами a и b. 
+    /// </summary>
     public class Rectangle : INotifyPropertyChanged
     {
         private double _a;
