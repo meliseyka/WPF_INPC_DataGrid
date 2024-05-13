@@ -21,7 +21,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid DockPanel.Dock="Bottom" ItemsSource="{Binding Path=Geometry}" AutoGenerateColumns="False"
+        <DataGrid ItemsSource="{Binding Path=Geometry}" AutoGenerateColumns="False"
          IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Свойство" Binding="{Binding Path=property}"></DataGridTextColumn>
@@ -40,5 +40,14 @@
             <TextBlock Text="{Binding rectangle.b, StringFormat= 'b = {0}'}"/>
             <TextBlock Text="{Binding rectangle.Square, StringFormat= 'Общая площадь поперечного сечения = {0}'}"/>
         </StackPanel>
+
+        <DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=RectangleGeometry}" AutoGenerateColumns="False"
+        IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Свойство" Binding="{Binding Path=a}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Величина" Binding="{Binding Path=b}"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
     </Grid>
 </Window>

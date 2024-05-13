@@ -24,7 +24,15 @@ namespace WPF_INPC_DataGrid.VM
         public ObservableCollection<PropertyValueClass> Geometry
         {
             get { return _Geometry; }
-            set { _Geometry = value; OnPropertyChanged(); }
+            set { _Geometry = value; }
+        }
+
+        private ObservableCollection<Rectangle> _RectangleGeometry;
+
+        public ObservableCollection<Rectangle> RectangleGeometry
+        {
+            get { return _RectangleGeometry; }
+            set { _RectangleGeometry = value; OnPropertyChanged(); }
         }
 
 
@@ -42,6 +50,7 @@ namespace WPF_INPC_DataGrid.VM
                     new PropertyValueClass {property="Общая площадь поперечного сечения, ед.изм", value=Math.Round((decimal)(rectangle.Square),2) },
             };
 
+            RectangleGeometry = new ObservableCollection<Rectangle> { rectangle };
         }
 
         private RelayCommand _UpdateRectangle;
@@ -85,8 +94,10 @@ namespace WPF_INPC_DataGrid.VM
 
         void UpdateRectangleMethodByChangingProperties()
         {
-            rectangle.a = 15;
-            rectangle.b = 30;
+            Random r = new Random();
+
+            rectangle.a = r.Next(0, 100);
+            rectangle.b = r.Next(0, 100);
             rectangle.Square = rectangle.a * rectangle.b;
         }
 
